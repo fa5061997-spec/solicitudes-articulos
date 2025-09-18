@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Solicitud de Código</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-6 lg:p-8">
+
+    <div class="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+        <div class="flex items-center p-6 bg-white border-b border-gray-200">
+            <img src="https://i.postimg.cc/YCjpW1pw/Captura-de-pantalla-2025-09-18-144612.png" alt="Logo de American Tropic Foods" class="mr-6 w-32">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Formulario de Solicitud de Código</h1>
+        </div>
+        
+        <div class="p-6">
+            <form id="solicitudForm" class="space-y-6">
+
+                <!-- Sección 1: Datos del solicitante -->
+                <div class="form-section active" data-section="1">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">1. Datos del Solicitante</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="nombre_solicitante" class="block text-sm font-medium text-gray-600 mb-1">Nombre Completo</label>
+                            <input type="text" id="nombre_solicitante" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="puesto_solicitante" class="block text-sm font-medium text-gray-600 mb-1">Puesto</label>
+                            <input type="text" id="puesto_solicitante" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="fecha_solicitud" class="block text-sm font-medium text-gray-600 mb-1">Fecha</label>
+                            <input type="text" id="fecha_solicitud" class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed" readonly>
+                        </div>
+                        <div class="col-span-1 md:col-span-2">
+                            <label for="firma_solicitante" class="block text-sm font-medium text-gray-600 mb-1">Firma del Solicitante</label>
+                            <textarea id="firma_solicitante" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 2: Información del artículo -->
+                <div class="form-section" data-section="2">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">2. Información del Artículo o Servicio</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="col-span-1 md:col-span-2">
+                            <label for="nombre_articulo" class="block text-sm font-medium text-gray-600 mb-1">Nombre claro del artículo/servicio</label>
+                            <input type="text" id="nombre_articulo" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="tipo_articulo" class="block text-sm font-medium text-gray-600 mb-1">Tipo de artículo</label>
+                            <select id="tipo_articulo" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="" disabled selected>Selecciona un tipo</option>
+                                <option value="Materia prima">Materia prima</option>
+                                <option value="Insumos">Insumos</option>
+                                <option value="Producto terminado">Producto terminado</option>
+                                <option value="Servicios">Servicios</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                        <div id="product_details_fields" class="col-span-1 md:col-span-2 hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="marca_producto" class="block text-sm font-medium text-gray-600 mb-1">Marca</label>
+                                <input type="text" id="marca_producto" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="sabor_producto" class="block text-sm font-medium text-gray-600 mb-1">Sabor</label>
+                                <input type="text" id="sabor_producto" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="gramaje_producto" class="block text-sm font-medium text-gray-600 mb-1">Gramaje</label>
+                                <input type="text" id="gramaje_producto" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="cliente_producto" class="block text-sm font-medium text-gray-600 mb-1">Cliente</label>
+                                <input type="text" id="cliente_producto" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="unidad_medida" class="block text-sm font-medium text-gray-600 mb-1">Unidad de medida</label>
+                            <input type="text" id="unidad_medida" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="bodegas" class="block text-sm font-medium text-gray-600 mb-1">Bodegas</label>
+                            <input type="text" id="bodegas" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="tipo_impuesto" class="block text-sm font-medium text-gray-600 mb-1">Tipo de Impuesto (IVA)</label>
+                            <select id="tipo_impuesto" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="" disabled selected>Selecciona un tipo</option>
+                                <option value="IVA 13%">IVA 13%</option>
+                                <option value="IVA 4%">IVA 4%</option>
+                                <option value="Exento">Exento</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="vida_util_anios" class="block text-sm font-medium text-gray-600 mb-1">Vida útil (años)</label>
+                            <input type="number" id="vida_util_anios" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="manejo_lotes" class="block text-sm font-medium text-gray-600 mb-1">Manejo por lotes</label>
+                            <select id="manejo_lotes" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="Sí">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="origen" class="block text-sm font-medium text-gray-600 mb-1">Origen del producto</label>
+                            <input type="text" id="origen" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="col-span-1 md:col-span-2">
+                            <label for="observaciones" class="block text-sm font-medium text-gray-600 mb-1">Observaciones Adicionales</label>
+                            <textarea id="observaciones" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de botones de navegación -->
+                <div class="flex justify-between items-center mt-6">
+                    <button type="button" id="prevBtn" class="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg font-semibold hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-200" style="display: none;">Anterior</button>
+                    <button type="button" id="nextBtn" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200">Siguiente</button>
+                    <button type="submit" id="submitBtn" class="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200" style="display: none;">Enviar Solicitud</button>
+                </div>
+                
+                <!-- Mensaje de confirmación -->
+                <div id="confirmationMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg text-sm text-center">
+                    ¡Solicitud enviada con éxito!
+                </div>
+                <div id="errorMessage" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-lg text-sm text-center">
+                    Hubo un error al enviar la solicitud. Por favor, inténtelo de nuevo.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CÓDIGO PARA LA CONEXIÓN A LA BASE DE DATOS -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Configuración de Firebase y Autenticación
+        // NOTA: Estas variables globales se proporcionan automáticamente en este entorno
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        setLogLevel('debug'); // Habilitar logs para depuración
+
+        // Variables globales del DOM
+        const solicitudForm = document.getElementById('solicitudForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const tipoArticuloSelect = document.getElementById('tipo_articulo');
+        const productDetailsFields = document.getElementById('product_details_fields');
+        const fechaInput = document.getElementById('fecha_solicitud');
+
+        // Navegación del formulario
+        const sections = document.querySelectorAll('.form-section');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        let currentSectionIndex = 0;
+
+        function showSection(index) {
+            sections.forEach((section, i) => {
+                section.classList.toggle('active', i === index);
+            });
+            prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+            nextBtn.style.display = index === sections.length - 1 ? 'none' : 'inline-block';
+            submitBtn.style.display = index === sections.length - 1 ? 'inline-block' : 'none';
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSectionIndex > 0) {
+                currentSectionIndex--;
+                showSection(currentSectionIndex);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSectionIndex < sections.length - 1) {
+                currentSectionIndex++;
+                showSection(currentSectionIndex);
+            }
+        });
+
+        // Manejo del campo de fecha
+        fechaInput.value = new Date().toLocaleDateString();
+
+        // Mostrar u ocultar campos de producto terminado
+        tipoArticuloSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'Producto terminado') {
+                productDetailsFields.classList.remove('hidden');
+            } else {
+                productDetailsFields.classList.add('hidden');
+            }
+        });
+
+        // Lógica del formulario
+        solicitudForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            confirmationMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            
+            // Obtener los datos del formulario
+            const solicitudData = {
+                solicitante: {
+                    nombre: document.getElementById('nombre_solicitante').value,
+                    puesto: document.getElementById('puesto_solicitante').value,
+                    firma: document.getElementById('firma_solicitante').value
+                },
+                articulo: {
+                    nombre: document.getElementById('nombre_articulo').value,
+                    tipo: tipoArticuloSelect.value,
+                    unidad_medida: document.getElementById('unidad_medida').value,
+                    bodegas: document.getElementById('bodegas').value,
+                    tipo_impuesto: document.getElementById('tipo_impuesto').value,
+                    vida_util_anios: document.getElementById('vida_util_anios').value,
+                    manejo_lotes: document.getElementById('manejo_lotes').value,
+                    origen: document.getElementById('origen').value,
+                    observaciones: document.getElementById('observaciones').value,
+                },
+                status: 'Pendiente',
+                timestamp: serverTimestamp()
+            };
+
+            // Incluir detalles adicionales si es un producto terminado
+            if (solicitudData.articulo.tipo === 'Producto terminado') {
+                solicitudData.articulo.detalles_producto = {
+                    marca: document.getElementById('marca_producto').value,
+                    sabor: document.getElementById('sabor_producto').value,
+                    gramaje: document.getElementById('gramaje_producto').value,
+                    cliente: document.getElementById('cliente_producto').value,
+                };
+            }
+
+            try {
+                // Autenticación si es anónima
+                if (!auth.currentUser) {
+                    await signInAnonymously(auth);
+                }
+                const currentUserId = auth.currentUser?.uid || 'anon-user';
+                
+                // La ruta de la colección ahora es pública para que el panel de administración pueda leer los datos
+                const collectionPath = `/artifacts/${appId}/public/data/solicitudes_articulo`;
+                
+                await addDoc(collection(db, collectionPath), solicitudData);
+                solicitudForm.reset();
+                fechaInput.value = new Date().toLocaleDateString();
+                confirmationMessage.classList.remove('hidden');
+            } catch (error) {
+                console.error("Error al guardar la solicitud:", error);
+                errorMessage.classList.remove('hidden');
+            }
+        });
+
+        // Iniciar la aplicación
+        async function initApp() {
+            try {
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Error al autenticar:", error);
+            }
+        }
+        
+        initApp();
+        showSection(currentSectionIndex);
+
+    </script>
+</body>
+</html>
